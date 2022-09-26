@@ -1,4 +1,4 @@
-# OpenAbis/Secugen: Python binding for SecuGen SDK
+# OpenABIS Secugen: Python binding for SecuGen SDK
 
 This is a Python/CFFI binding for the SecuGen SDK specialized in minutiae manipulation.
 
@@ -10,29 +10,31 @@ The bundled SecuGen libraries were copied from the following SDKs:
  - FDx SDK Pro for Windows v3.7_J14
 
 
-_**Important**_
+## Installation
 
-_SDKs should be stored in `lib/` directory inside the project working directory._
-
-_The following is an example._
-
+**Pipenv**
 ```
---project root
-    ---lib/
-        --- secugen/
-            --- windows/
-                ---- i386/
-                ---- 64/
-            ---- linux/
-                ---- i386/
-                ---- 64/
-
+pipenv install git+https://github.com/openabis/openabis-secugen.git@master#openabis_secugen
 ```
 
-**Installation**
-
-Pipenv
-
+**Pip**
 ```
-pipenv install -e git+https://github.com/newlogic42/openabis-secugen.git@master#openabis_secugen
+pip install git+https://github.com/openabis/openabis-secugen.git@master
+```
+
+## Usage
+`SecuGen` accepts `config` as parameter. 
+
+Path to the libraries is a requirement and should be provied in the `config`:
+```text
+LIBSGFDU03 (str) - path to filename `libsgfdu03.so`
+LIBSGFPAMX (str) - path to filename `libsgfpamx.so`
+LIBSGFPLIB (str) - path to filename `libsgfplib.so`
+SGFPLIB (str) - path to filename `sgfplib`
+```
+
+Configurations needed for the process:
+
+```text
+SECUGEN_MATCH_SECURITY_LEVEL (int) - security level defined by the app, default is 5
 ```
